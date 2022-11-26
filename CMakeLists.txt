@@ -1,4 +1,4 @@
-project(test_classes)
+project(sandbox)
 cmake_minimum_required(VERSION 3.0)
 
 # Flags
