@@ -5,6 +5,9 @@
 #include <iomanip>
 #include <memory>
 
+#include <iostream>
+#include <string>
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -36,13 +39,14 @@ using std::string;
 class Point {
 public:
   Point(int x, int y) : x_{x}, y_{y} {}
-  float distance(const Point& other) const {
+  float distance(const Point &other) const {
     float x_diff = x_ - other.x_;
     float y_diff = y_ - other.y_;
+
     return sqrt(x_diff * x_diff + y_diff * y_diff);
   }
 
-  static float Distance(const Point& a, const Point& b, bool verbose = false) {
+  static float Distance(const Point &a, const Point &b, bool verbose = false) {
     if (verbose == true) {
       cout << endl;
       cout << "Point a: x: " << a.x_ << ", y: " << a.y_ << endl;
@@ -79,7 +83,7 @@ public:
 class A {
 public:
   A(int x) : data_{x} {};
-  const int* data() const { return &data_; }
+  const int *data() const { return &data_; }
   void updateData(int x) { data_ = x; }
 
 private:
@@ -90,7 +94,7 @@ int main() {
 
   A a(10);
   a.updateData(5);
-  const auto* data_ptr = a.data();
+  const auto *data_ptr = a.data();
   cout << "Data: " << *data_ptr << endl;
 
   // const A* ptr = &a;
@@ -100,7 +104,7 @@ int main() {
   // ptr = &b;
   // cout << "Data: " << *ptr->data() << endl;
 
-  A* const ptr = &a;
+  A *const ptr = &a;
   cout << "Data: " << *ptr->data() << endl;
   ptr->updateData(10);
   cout << "Data: " << *ptr->data() << endl;
